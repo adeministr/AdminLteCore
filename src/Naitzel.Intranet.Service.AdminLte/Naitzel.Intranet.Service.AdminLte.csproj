@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Naitzel.Intranet.Infra.Data.AdminLte\Naitzel.Intranet.Infra.Data.AdminLte.csproj" />
+    <ProjectReference Include="..\Naitzel.Intranet.Infra.CrossCutting.AdminLte\Naitzel.Intranet.Infra.CrossCutting.AdminLte.csproj" />
+  </ItemGroup>
+</Project>
