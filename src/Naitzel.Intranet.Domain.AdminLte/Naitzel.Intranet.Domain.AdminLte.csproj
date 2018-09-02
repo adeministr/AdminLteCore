@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain.AdminLte</RootNamespace>
+    <AssemblyName>Domain.AdminLte</AssemblyName>
   </PropertyGroup>
 
 </Project>
