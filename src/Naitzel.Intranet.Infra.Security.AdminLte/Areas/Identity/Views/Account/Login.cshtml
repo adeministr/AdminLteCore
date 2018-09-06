@@ -1,0 +1,53 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Logar-se";
+    @section AfterScripts {
+        <script>
+            $(function () {
+                $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' /* optional */
+                });
+            });
+        </script>
+    }
+}
+
+<div class="login-box-body">
+    <p class="login-box-msg">Entre para iniciar sua sessão</p>
+
+    <form method="post">
+
+        <div class="form-group has-feedback">
+            <input asp-for="Email" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Email)">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+            <input asp-for="Password" type="password" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Password)">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="checkbox icheck">
+                    <label asp-for="RememberMe">
+                        <input class="checkbox" asp-for="RememberMe" /> &nbsp;
+                        @Html.DisplayNameFor(m => m.RememberMe)
+                    </label>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Logar-se</button>
+            </div>
+        </div>
+
+
+        <!-- <p class="text-center">- OU -</p> -->
+        <!-- <a href="#">Esqueci a minha senha</a><br> -->
+        <a asp-action="Register" asp-route-returnUrl="@ViewData["ReturnUrl"]" class="btn btn-link btn-block btn-flat">Cadastrar-se</a>
+    </form>
+</div>

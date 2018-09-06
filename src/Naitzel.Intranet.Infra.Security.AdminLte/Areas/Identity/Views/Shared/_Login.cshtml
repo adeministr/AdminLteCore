@@ -1,0 +1,25 @@
+@{
+    Layout = "_Default";
+    ViewData["BodyClass"] = "hold-transition login-page";
+    ViewData["BodyId"] = "";
+    @section Scripts {
+        <script src="~/lib/iCheck/icheck.min.js" asp-append-version="true"></script>
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+        @RenderSection("Scripts", required: false)
+    }
+    @section AfterScripts {
+        @RenderSection("AfterScripts", required: false)
+    }
+
+    @section Stylesheet {
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <link rel="stylesheet" href="~/lib/iCheck/skins/square/blue.css" />
+    }
+}
+
+<div class="login-box">
+    <div class="login-logo">
+        <a href="/"><b>Admin</b>LTE</a>
+    </div>
+    @RenderBody()
+</div>

@@ -1,0 +1,55 @@
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Cadastrar-se";
+}
+
+<div class="register-box-body">
+    <p class="login-box-msg">Cadastrar-se</p>
+
+    <form method="post">
+
+        <div class="form-group has-feedback">
+            <input asp-for="FirstName" class="form-control" placeholder="@Html.DisplayNameFor(m => m.FirstName)">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+            <input asp-for="LastName" class="form-control" placeholder="@Html.DisplayNameFor(m => m.LastName)">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+            <input asp-for="UserName" class="form-control" placeholder="@Html.DisplayNameFor(m => m.UserName)">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+            <input asp-for="Email" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Email)">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+            <input asp-for="Password" type="password" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Password)">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="@Html.DisplayNameFor(m => m.ConfirmPassword)">
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+        </div>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-xs-7">
+                <a asp-action="Login" class="btn btn-link btn-block btn-flat">Eu já tenho uma conta</a>
+            </div>
+            <div class="col-xs-4 col-xs-offset-1">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Cadastrar</button>
+            </div>
+        </div>
+
+
+    </form>
+
+  </div>

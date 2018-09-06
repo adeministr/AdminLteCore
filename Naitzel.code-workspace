@@ -1,0 +1,59 @@
+{
+	"folders": [
+		{
+			"path": "src/Naitzel.Intranet.Application.AdminLte",
+			"name": "AdminLte.Application"
+		},
+		{
+			"path": "src/Naitzel.Intranet.Domain.AdminLte",
+			"name": "AdminLte.Domain"
+		},
+		{
+			"path": "src/Naitzel.Intranet.Service.AdminLte",
+			"name": "AdminLte.Service"
+		},
+		{
+			"path": "src/Naitzel.Intranet.Infra.Security.AdminLte",
+			"name": "AdminLte.Infra.Security"
+		},
+		{
+			"path": "src/Naitzel.Intranet.Infra.Data.AdminLte",
+			"name": "AdminLte.Infra.Data"
+		},
+		{
+			"path": "src/Naitzel.Intranet.Infra.CrossCutting.AdminLte",
+			"name": "AdminLte.Infra.CrossCutting"
+		}
+	],
+	"settings": {
+		"editor.fontFamily": "'Fira Code'",
+		"editor.fontLigatures": true,
+		"trailing-spaces.trimOnSave": true,
+		"csharp.format.enable": false,
+		"csharpfixformat.style.braces.onSameLine": false,
+		"csharpfixformat.style.spaces.beforeParenthesis": false,
+		"csharpfixformat.sort.usings.splitGroups": true,
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/obj": true,
+			"**/bin": true,
+			"**/.DS_Store": true
+		},
+		"emmet.includeLanguages": {
+			"razor": "html"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"jchannon.csharpextensions",
+			"ms-vscode.csharp",
+			"Leopotam.csharpfixformat",
+			"jmrog.vscode-nuget-package-manager",
+			"coenraads.bracket-pair-colorizer",
+			"shardulm94.trailing-spaces"
+		]
+	}
+}

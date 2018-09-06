@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Naitzel.Intranet.Domain.AdminLte.Interfaces.Repository.Common;
 using Naitzel.Intranet.Domain.AdminLte.Interfaces.Service.Common;
@@ -21,19 +23,19 @@ namespace Naitzel.Intranet.Domain.AdminLte.Services.Common
             get { return _readOnlyRepository; }
         }
 
-        public virtual TEntity Get(int id)
+        public virtual Task<TEntity> GetAsync(int id, CancellationToken token = default(CancellationToken))
         {
-            return _readOnlyRepository.Get(id);
+            return _readOnlyRepository.GetAsync(id, token);
         }
 
-        public virtual IEnumerable<TEntity> All()
+        public virtual Task<IEnumerable<TEntity>> AllAsync(CancellationToken token = default(CancellationToken))
         {
-            return _readOnlyRepository.All();
+            return _readOnlyRepository.AllAsync(token);
         }
 
-        public virtual IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public virtual Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken token = default(CancellationToken))
         {
-            return _readOnlyRepository.Find(predicate);
+            return _readOnlyRepository.FindAsync(predicate, token);
         }
     }
 }

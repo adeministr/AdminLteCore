@@ -3,17 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0EABE618-EE73-466D-B8C2-1B557D909055}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Naitzel.Intranet.Application.AdminLte", "src\Naitzel.Intranet.Application.AdminLte\Naitzel.Intranet.Application.AdminLte.csproj", "{2EC49BA7-4C0E-4A1B-9530-6C02B6A8DBC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naitzel.Intranet.Application.AdminLte", "src\Naitzel.Intranet.Application.AdminLte\Naitzel.Intranet.Application.AdminLte.csproj", "{2EC49BA7-4C0E-4A1B-9530-6C02B6A8DBC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Naitzel.Intranet.Domain.AdminLte", "src\Naitzel.Intranet.Domain.AdminLte\Naitzel.Intranet.Domain.AdminLte.csproj", "{B92A459C-07E8-4905-8262-A12AD4A566FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naitzel.Intranet.Domain.AdminLte", "src\Naitzel.Intranet.Domain.AdminLte\Naitzel.Intranet.Domain.AdminLte.csproj", "{B92A459C-07E8-4905-8262-A12AD4A566FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Naitzel.Intranet.Infra.CrossCutting.AdminLte", "src\Naitzel.Intranet.Infra.CrossCutting.AdminLte\Naitzel.Intranet.Infra.CrossCutting.AdminLte.csproj", "{793FE35D-D1A2-4C19-B8BB-9FCCD48147A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naitzel.Intranet.Infra.CrossCutting.AdminLte", "src\Naitzel.Intranet.Infra.CrossCutting.AdminLte\Naitzel.Intranet.Infra.CrossCutting.AdminLte.csproj", "{793FE35D-D1A2-4C19-B8BB-9FCCD48147A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Naitzel.Intranet.Infra.Data.AdminLte", "src\Naitzel.Intranet.Infra.Data.AdminLte\Naitzel.Intranet.Infra.Data.AdminLte.csproj", "{1477F3A1-CD59-4316-A9DB-B70668582ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naitzel.Intranet.Infra.Data.AdminLte", "src\Naitzel.Intranet.Infra.Data.AdminLte\Naitzel.Intranet.Infra.Data.AdminLte.csproj", "{1477F3A1-CD59-4316-A9DB-B70668582ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Naitzel.Intranet.Service.AdminLte", "src\Naitzel.Intranet.Service.AdminLte\Naitzel.Intranet.Service.AdminLte.csproj", "{2B2F7A65-9F73-4959-98AF-A73EFF2621D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naitzel.Intranet.Service.AdminLte", "src\Naitzel.Intranet.Service.AdminLte\Naitzel.Intranet.Service.AdminLte.csproj", "{2B2F7A65-9F73-4959-98AF-A73EFF2621D4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{1460F7C5-A45B-44CC-8D99-54F595234098}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{0A849B25-4931-4845-91BD-5043CE946B89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{CF55CAA2-AE8A-4281-86A0-A0FFA0842818}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{5F1E27D6-7E73-4416-BBBD-5DF68EC43007}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Naitzel.Intranet.Infra.Security.AdminLte", "src\Naitzel.Intranet.Infra.Security.AdminLte\Naitzel.Intranet.Infra.Security.AdminLte.csproj", "{03B9B496-4B45-47BE-9CF8-F7E559539003}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2EC49BA7-4C0E-4A1B-9530-6C02B6A8DBC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -88,12 +93,31 @@ Global
 		{2B2F7A65-9F73-4959-98AF-A73EFF2621D4}.Release|x64.Build.0 = Release|Any CPU
 		{2B2F7A65-9F73-4959-98AF-A73EFF2621D4}.Release|x86.ActiveCfg = Release|Any CPU
 		{2B2F7A65-9F73-4959-98AF-A73EFF2621D4}.Release|x86.Build.0 = Release|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Debug|x64.Build.0 = Debug|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Debug|x86.Build.0 = Debug|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Release|x64.ActiveCfg = Release|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Release|x64.Build.0 = Release|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Release|x86.ActiveCfg = Release|Any CPU
+		{03B9B496-4B45-47BE-9CF8-F7E559539003}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2EC49BA7-4C0E-4A1B-9530-6C02B6A8DBC2} = {0EABE618-EE73-466D-B8C2-1B557D909055}
-		{B92A459C-07E8-4905-8262-A12AD4A566FB} = {0EABE618-EE73-466D-B8C2-1B557D909055}
-		{793FE35D-D1A2-4C19-B8BB-9FCCD48147A0} = {0EABE618-EE73-466D-B8C2-1B557D909055}
-		{1477F3A1-CD59-4316-A9DB-B70668582ADE} = {0EABE618-EE73-466D-B8C2-1B557D909055}
-		{2B2F7A65-9F73-4959-98AF-A73EFF2621D4} = {0EABE618-EE73-466D-B8C2-1B557D909055}
+		{2EC49BA7-4C0E-4A1B-9530-6C02B6A8DBC2} = {1460F7C5-A45B-44CC-8D99-54F595234098}
+		{B92A459C-07E8-4905-8262-A12AD4A566FB} = {CF55CAA2-AE8A-4281-86A0-A0FFA0842818}
+		{793FE35D-D1A2-4C19-B8BB-9FCCD48147A0} = {5F1E27D6-7E73-4416-BBBD-5DF68EC43007}
+		{1477F3A1-CD59-4316-A9DB-B70668582ADE} = {5F1E27D6-7E73-4416-BBBD-5DF68EC43007}
+		{2B2F7A65-9F73-4959-98AF-A73EFF2621D4} = {0A849B25-4931-4845-91BD-5043CE946B89}
+		{03B9B496-4B45-47BE-9CF8-F7E559539003} = {5F1E27D6-7E73-4416-BBBD-5DF68EC43007}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E15A4FDD-7476-4796-B2B4-F5BD4D576978}
 	EndGlobalSection
 EndGlobal

@@ -2,10 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Service.AdminLte</RootNamespace>
+    <AssemblyName>Service.AdminLte</AssemblyName>
+    <Authors>Rogério Adriano da Silva Naitzel</Authors>
+    <Description>Dll da interface de Serviço</Description>
+    <Version>0.0.1</Version>
+    <AssemblyVersion>0.0.0.1</AssemblyVersion>
+    <FileVersion>0.0.0.1</FileVersion>
+    <Copyright>MIT</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Naitzel.Intranet.Domain.AdminLte\Naitzel.Intranet.Domain.AdminLte.csproj" />
     <ProjectReference Include="..\Naitzel.Intranet.Infra.Data.AdminLte\Naitzel.Intranet.Infra.Data.AdminLte.csproj" />
-    <ProjectReference Include="..\Naitzel.Intranet.Infra.CrossCutting.AdminLte\Naitzel.Intranet.Infra.CrossCutting.AdminLte.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.0.100" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
   </ItemGroup>
 </Project>

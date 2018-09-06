@@ -1,0 +1,11 @@
+{
+  "name": "naitzel.adminlte",
+  "private": true,
+  "dependencies": {
+    "admin-lte": "^2.4.8",
+    "jquery-validation": "^1.17.0",
+    "jquery-validation-unobtrusive": "^3.2.10",
+    "moment": "^2.22.2",
+    "iCheck": "^1.0.2"
+  }
+}
