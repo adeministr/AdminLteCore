@@ -7,8 +7,10 @@ using AutoMapper;
 using FluentValidation.AspNetCore;
 
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 
 using Naitzel.Intranet.Infra.CrossCutting.AdminLte.IoC;
 using Naitzel.Intranet.Infra.Security.AdminLte;
@@ -33,7 +35,7 @@ namespace Naitzel.Intranet.Infra.CrossCutting.AdminLte
         /**
          *  Auto load Fluent Validator
          */
-        public static void AutoLoadAdminLte(this IMvcBuilder mvcBuilder, Assembly[] assemblys)
+        public static void AutoLoadMvcAdminLte(this IMvcBuilder mvcBuilder, Assembly[] assemblys)
         {
             mvcBuilder.AddFluentValidation(config =>
             {

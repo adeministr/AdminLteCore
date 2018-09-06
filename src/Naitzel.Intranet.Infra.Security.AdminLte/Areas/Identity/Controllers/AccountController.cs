@@ -124,7 +124,7 @@ namespace Naitzel.Intranet.Infra.Security.AdminLte.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", new { Area = "" });
             }
         }
     }

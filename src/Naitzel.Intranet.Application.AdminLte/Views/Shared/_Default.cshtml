@@ -9,7 +9,7 @@
     }
 
     string Title = "AdminLTE";
-    string BodyId = GetViewData("BodyId", "");
+    string BodyId = GetViewData("BodyId", "AdminLte");
     string SkinColor = GetViewData("SkinColor", "red");
     string BodyClass = GetViewData("BodyClass", $"hold-transition skin-{SkinColor} sidebar-mini");
 
@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="~/lib/Ionicons/css/ionicons.min.css" />
     <link rel="stylesheet" href="~/lib/admin-lte/dist/css/AdminLTE.min.css" />
     <link rel="stylesheet" href="~/lib/admin-lte/dist/css/skins/skin-@{@SkinColor}.css" />
-    <link rel="stylesheet" href="~/css/default.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
     @RenderSection("Stylesheet", required: false)
     @RenderSection("AfterStylesheet", required: false)
 
@@ -50,7 +50,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
     <script src="~/lib/moment/min/moment.min.js" asp-append-version="true"></script>
-    <script src="~/js/default.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
     @RenderSection("AfterScripts", required: false)
 </body>

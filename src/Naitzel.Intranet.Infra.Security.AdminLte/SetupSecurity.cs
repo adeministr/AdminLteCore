@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Naitzel.Intranet.Domain.AdminLte.Entities;
 using Naitzel.Intranet.Infra.Data.AdminLte;
+using Naitzel.Intranet.Infra.Security.AdminLte.Service;
 
 namespace Naitzel.Intranet.Infra.Security.AdminLte
 {
@@ -20,6 +21,8 @@ namespace Naitzel.Intranet.Infra.Security.AdminLte
                 .AddEntityFrameworkStores<AdminLteContext>()
                 // .AddDefaultUI()
                 .AddDefaultTokenProviders();
+
+            services.AddScoped<IUserClaimsPrincipalFactory<User>, ClaimsPrincipalService>();
 
             services.Configure<IdentityOptions>(options =>
             {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 using Naitzel.Intranet.Domain.AdminLte.Enums;
 
-namespace Naitzel.Intranet.Domain.AdminLte.Model
+namespace Naitzel.Intranet.Domain.AdminLte.ViewModel
 {
-    public class SidebarMenu
+    public class SidebarMenuViewModel
     {
         public SidebarMenuType Type { get; set; }
 
@@ -17,7 +17,7 @@ namespace Naitzel.Intranet.Domain.AdminLte.Model
 
         public string URLPath { get; set; }
 
-        public IList<SidebarMenu> TreeChild { get; set; }
+        public IList<SidebarMenuViewModel> TreeChild { get; set; }
 
         public Tuple<int, int, int> LinkCounter { get; set; }
     }

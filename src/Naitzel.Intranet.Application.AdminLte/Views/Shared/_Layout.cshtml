@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "./_Default.cshtml";
+
+    if (ViewData["SkinColor"] == null) {
+        ViewData["SkinColor"] = "blue";
+    }
+
+    if (ViewData["BodyClass"] == null) {
+        ViewData["BodyClass"] = $"hold-transition skin-{ViewData["SkinColor"]} sidebar-mini";
+    } else {
+        ViewData["BodyClass"] += $" hold-transition skin-{ViewData["SkinColor"]} sidebar-mini";
+    }
+
+    @section Stylesheet {
+        @RenderSection("Stylesheet", required: false)
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    }
+    @section BeforeStylesheet {
+        @RenderSection("BeforeStylesheet", required: false)
+    }
+    @section AfterStylesheet {
+        @RenderSection("AfterStylesheet", required: false)
+    }
+
+    @section Scripts {
+        <script src="~/lib/jquery-slimscroll/jquery.slimscroll.min.js" asp-append-version="true"></script>
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+        @RenderSection("Scripts", required: false)
+    }
+    @section BeforeScripts {
+        @RenderSection("BeforeScripts", required: false)
+    }
+    @section AfterScripts {
+        @RenderSection("AfterScripts", required: false)
+        <script src="~/lib/admin-lte/dist/js/adminlte.min.js"></script>
+    }
+}
+
+<div class="wrapper">
+    @await Component.InvokeAsync("Header")
+    @await Component.InvokeAsync("Sidebar")
+    <div class="content-wrapper">
+        <section class="content-header">
+            @await Component.InvokeAsync("PageHeader")
+            @await Component.InvokeAsync("Breadcrumb")
+            @await Component.InvokeAsync("PageAlert")
+        </section>
+        <section class="content">
+            @RenderBody()
+            <partial name="_CookieConsentPartial" />
+        </section>
+    </div>
+    @await Component.InvokeAsync("Footer")
+    @await Component.InvokeAsync("ControlSidebar")
+    <div class="control-sidebar-bg"></div>
+</div>

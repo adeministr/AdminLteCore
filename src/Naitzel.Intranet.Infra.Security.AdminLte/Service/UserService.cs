@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+using Naitzel.Intranet.Domain.AdminLte.Common;
 using Naitzel.Intranet.Domain.AdminLte.Entities;
 using Naitzel.Intranet.Domain.AdminLte.Extension;
 using Naitzel.Intranet.Domain.AdminLte.Interfaces.Service;
@@ -34,7 +36,15 @@ namespace Naitzel.Intranet.Infra.Security.AdminLte.Service
             if (iValidation != null && !iValidation.IsValid)
                 return iValidation;
 
-            return Resolve(await _userManager.CreateAsync(entity, entity.Password));
+            var result = await _userManager.CreateAsync(entity, entity.Password);
+            if (result.Succeeded)
+            {
+                await _userManager.AddClaimAsync(entity, new Claim(CustomClaimTypes.GivenName, entity.FirstName));
+                await _userManager.AddClaimAsync(entity, new Claim(CustomClaimTypes.Surname, entity.LastName));
+                await _userManager.AddClaimAsync(entity, new Claim(CustomClaimTypes.AvatarURL, entity.AvatarURL ?? "/images/user.png"));
+            }
+
+            return Resolve(result);
         }
 
         public Task<IEnumerable<User>> AllAsync(CancellationToken token = default(CancellationToken), bool @readonly = false)
