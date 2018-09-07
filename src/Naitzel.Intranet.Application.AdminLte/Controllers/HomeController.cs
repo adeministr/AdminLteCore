@@ -15,8 +15,19 @@ namespace Naitzel.Intranet.Application.AdminLte.Controllers
     [Authorize]
     public class HomeController : BaseController
     {
-        public IActionResult Index()
+        public IActionResult Index([FromServices] Domain.AdminLte.Interfaces.Service.IMessageService service)
         {
+            var message = new Domain.AdminLte.Entities.Message();
+            message.UserId = 1;
+            message.Icon = "fa fa-icon";
+            message.ShortDesc = "descrica dfa dfasd o";
+            message.Type = Domain.AdminLte.Enums.MessageType.Information;
+            message.Status = Domain.AdminLte.Enums.MessageStatusType.Opened;
+            message.Body = "aa dfasdf asdfas fasd fasd  fasdf asdf asdf fsdf";
+            message.Percentage = 30;
+
+            service.AddAsync(message);
+
             AddPageHeader("Dashboard", "");
             return View();
         }

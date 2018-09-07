@@ -38,23 +38,23 @@ namespace Naitzel.Intranet.Infra.Security.AdminLte.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Logout(CancellationToken token, string returnUrl = null)
+        public async Task<IActionResult> Logout(CancellationToken cancellationToken, string returnUrl = null)
         {
-            await _service.SignOutAsync(token);
+            await _service.SignOutAsync(cancellationToken);
             return RedirectToAction(nameof(Login));
         }
 
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(CancellationToken token, LoginViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Login(CancellationToken cancellationToken, LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
 
             if (ModelState.IsValid)
             {
 
-                var result = await _service.SignInAsync(model.Email, model.Password, model.RememberMe, token);
+                var result = await _service.SignInAsync(model.Email, model.Password, model.RememberMe, cancellationToken);
 
                 if (result.IsValid) return RedirectToLocal(returnUrl);
 

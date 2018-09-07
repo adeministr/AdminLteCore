@@ -30,7 +30,7 @@ namespace Naitzel.Intranet.Infra.Security.AdminLte.Service
             _validation = validation;
         }
 
-        public async Task<ValidationResult> AddAsync(User entity, CancellationToken token = default(CancellationToken))
+        public async Task<ValidationResult> AddAsync(User entity, CancellationToken cancellationToken = default(CancellationToken))
         {
             var iValidation = _validation.ValidateOnCreate(entity);
             if (iValidation != null && !iValidation.IsValid)
@@ -47,47 +47,47 @@ namespace Naitzel.Intranet.Infra.Security.AdminLte.Service
             return Resolve(result);
         }
 
-        public Task<IEnumerable<User>> AllAsync(CancellationToken token = default(CancellationToken), bool @readonly = false)
+        public Task<IEnumerable<User>> AllAsync(CancellationToken cancellationToken = default(CancellationToken), bool @readonly = false)
         {
             return _userManager.Users.ToListAsync().AsEnumerableAsync();
         }
 
-        public async Task<ValidationResult> DeleteAsync(User entity, CancellationToken token = default(CancellationToken))
+        public async Task<ValidationResult> DeleteAsync(User entity, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Resolve(await _userManager.DeleteAsync(entity));
         }
 
-        public Task<IEnumerable<User>> FindAsync(Expression<Func<User, bool>> predicate, CancellationToken token = default(CancellationToken), bool @readonly = false)
+        public Task<IEnumerable<User>> FindAsync(Expression<Func<User, bool>> predicate, CancellationToken cancellationToken = default(CancellationToken), bool @readonly = false)
         {
             return _userManager.Users.Where(predicate).ToListAsync().AsEnumerableAsync();
         }
 
-        public Task<User> FindByEmailAsync(string param, CancellationToken token = default(CancellationToken))
+        public Task<User> FindByEmailAsync(string param, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _userManager.FindByEmailAsync(param);
         }
 
-        public Task<User> FindByIdAsync(int param, CancellationToken token = default(CancellationToken))
+        public Task<User> FindByIdAsync(int param, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _userManager.FindByIdAsync(param.ToString());
         }
 
-        public Task<User> FindByLoginAsync(string param, CancellationToken token = default(CancellationToken))
+        public Task<User> FindByLoginAsync(string param, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _userManager.FindByEmailAsync(param);
         }
 
-        public Task<User> FindByNameAsync(string param, CancellationToken token = default(CancellationToken))
+        public Task<User> FindByNameAsync(string param, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _userManager.FindByNameAsync(param);
         }
 
-        public Task<User> GetAsync(int param, CancellationToken token = default(CancellationToken), bool @readonly = false)
+        public Task<User> GetAsync(int param, CancellationToken cancellationToken = default(CancellationToken), bool @readonly = false)
         {
             return _userManager.FindByIdAsync(param.ToString());
         }
 
-        public async Task<ValidationResult> UpdateAsync(User entity, CancellationToken token = default(CancellationToken))
+        public async Task<ValidationResult> UpdateAsync(User entity, CancellationToken cancellationToken = default(CancellationToken))
         {
             var iValidation = _validation.ValidateOnUpdate(entity);
             if (iValidation != null && !iValidation.IsValid)

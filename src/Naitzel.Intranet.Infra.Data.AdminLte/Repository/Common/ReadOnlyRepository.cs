@@ -17,17 +17,17 @@ namespace Naitzel.Intranet.Infra.Data.AdminLte.Repository.Common
 
         protected AdminLteContext Context => _dbContext;
 
-        public virtual Task<IEnumerable<TEntity>> AllAsync(CancellationToken token = default(CancellationToken))
+        public virtual Task<IEnumerable<TEntity>> AllAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             return Task.FromResult(_dbContext.Set<TEntity>().AsEnumerable());
         }
 
-        public virtual Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken token = default(CancellationToken))
+        public virtual Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Task.FromResult(_dbContext.Set<TEntity>().Where(predicate).AsEnumerable());
         }
 
-        public virtual Task<TEntity> GetAsync(int id, CancellationToken token = default(CancellationToken))
+        public virtual Task<TEntity> GetAsync(int id, CancellationToken cancellationToken = default(CancellationToken))
         {
             return Task.FromResult(_dbContext.Set<TEntity>().Find(id));
         }

@@ -44,28 +44,28 @@ namespace Naitzel.Intranet.Domain.AdminLte.Services.Common
             get { return _validationResult; }
         }
 
-        public virtual Task<TEntity> GetAsync(int id, CancellationToken token = default(CancellationToken), bool @readonly = false)
+        public virtual Task<TEntity> GetAsync(int id, CancellationToken cancellationToken = default(CancellationToken), bool @readonly = false)
         {
             return @readonly ?
-                _readOnlyRepository.GetAsync(id, token) :
-                _repository.GetAsync(id, token);
+                _readOnlyRepository.GetAsync(id, cancellationToken) :
+                _repository.GetAsync(id, cancellationToken);
         }
 
-        public virtual Task<IEnumerable<TEntity>> AllAsync(CancellationToken token = default(CancellationToken), bool @readonly = false)
+        public virtual Task<IEnumerable<TEntity>> AllAsync(CancellationToken cancellationToken = default(CancellationToken), bool @readonly = false)
         {
             return @readonly ?
-                _readOnlyRepository.AllAsync(token) :
-                _repository.AllAsync(token, @readonly);
+                _readOnlyRepository.AllAsync(cancellationToken) :
+                _repository.AllAsync(cancellationToken, @readonly);
         }
 
-        public virtual Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken token = default(CancellationToken), bool @readonly = false)
+        public virtual Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default(CancellationToken), bool @readonly = false)
         {
             return @readonly ?
-                _readOnlyRepository.FindAsync(predicate, token) :
-                _repository.FindAsync(predicate, token, @readonly);
+                _readOnlyRepository.FindAsync(predicate, cancellationToken) :
+                _repository.FindAsync(predicate, cancellationToken, @readonly);
         }
 
-        public virtual Task<ValidationResult> AddAsync(TEntity entity, CancellationToken token = default(CancellationToken))
+        public virtual Task<ValidationResult> AddAsync(TEntity entity, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!ValidationResult.IsValid)
                 return Task.FromResult(ValidationResult);
@@ -74,11 +74,11 @@ namespace Naitzel.Intranet.Domain.AdminLte.Services.Common
             if (iValidation != null && !iValidation.IsValid)
                 return Task.FromResult(iValidation);
 
-            _repository.AddAsync(entity, token);
+            _repository.AddAsync(entity, cancellationToken);
             return Task.FromResult(_validationResult);
         }
 
-        public virtual Task<ValidationResult> UpdateAsync(TEntity entity, CancellationToken token = default(CancellationToken))
+        public virtual Task<ValidationResult> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!ValidationResult.IsValid)
                 return Task.FromResult(ValidationResult);
@@ -87,16 +87,16 @@ namespace Naitzel.Intranet.Domain.AdminLte.Services.Common
             if (iValidation != null && !iValidation.IsValid)
                 return Task.FromResult(iValidation);
 
-            _repository.UpdateAsync(entity, token);
+            _repository.UpdateAsync(entity, cancellationToken);
             return Task.FromResult(_validationResult);
         }
 
-        public virtual Task<ValidationResult> DeleteAsync(TEntity entity, CancellationToken token = default(CancellationToken))
+        public virtual Task<ValidationResult> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!ValidationResult.IsValid)
                 return Task.FromResult(ValidationResult);
 
-            _repository.DeleteAsync(entity, token);
+            _repository.DeleteAsync(entity, cancellationToken);
             return Task.FromResult(_validationResult);
         }
 

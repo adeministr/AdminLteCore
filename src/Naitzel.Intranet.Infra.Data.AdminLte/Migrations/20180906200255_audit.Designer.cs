@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Naitzel.Intranet.Infra.Data.AdminLte;
 
 namespace Infra.Data.AdminLte.Migrations
 {
     [DbContext(typeof(AdminLteContext))]
-    partial class AdminLteContextModelSnapshot : ModelSnapshot
+    [Migration("20180906200255_audit")]
+    partial class audit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

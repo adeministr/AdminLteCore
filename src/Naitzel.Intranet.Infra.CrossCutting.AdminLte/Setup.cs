@@ -23,8 +23,6 @@ namespace Naitzel.Intranet.Infra.CrossCutting.AdminLte
         {
             services.AddDefaultService(configuration);
             services.AddAdminLteSecurity(configuration);
-            services.AddMessageService(configuration);
-            services.AddUserService(configuration);
         }
 
         public static void ConfigureAdminLte(this IApplicationBuilder app, IServiceProvider serviceProvider)

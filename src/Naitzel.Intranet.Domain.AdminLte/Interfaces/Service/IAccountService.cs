@@ -8,12 +8,12 @@ namespace Naitzel.Intranet.Domain.AdminLte.Interfaces.Service
 {
     public interface IAccountService
     {
-        Task<ValidationResult> SignInAsync(string userName, string password, bool @isPersistent = false, CancellationToken token = default(CancellationToken));
+        Task<ValidationResult> SignInAsync(string userName, string password, bool @isPersistent = false, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task SignOutAsync(CancellationToken token = default(CancellationToken));
+        Task SignOutAsync(CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<ValidationResult> RegisterAsync(User entity, CancellationToken token = default(CancellationToken));
+        Task<ValidationResult> RegisterAsync(User entity, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<ValidationResult> UnregisterAsync(User entity, CancellationToken token = default(CancellationToken));
+        Task<ValidationResult> UnregisterAsync(User entity, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

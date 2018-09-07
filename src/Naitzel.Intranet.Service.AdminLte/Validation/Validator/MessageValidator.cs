@@ -14,7 +14,7 @@ namespace Naitzel.Intranet.Service.AdminLte.Validation.Validator
             RuleFor(x => x.Type).NotNull().NotEmpty().IsInEnum();
             RuleFor(x => x.Status).NotNull().NotEmpty().IsInEnum();
             RuleFor(x => x.Body).NotNull().NotEmpty();
-            RuleFor(x => x.Percentage).NotEmpty().GreaterThan(100);
+            RuleFor(x => x.Percentage).NotEmpty().LessThan(100);
         }
     }
 }

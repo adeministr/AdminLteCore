@@ -23,19 +23,19 @@ namespace Naitzel.Intranet.Domain.AdminLte.Services.Common
             get { return _readOnlyRepository; }
         }
 
-        public virtual Task<TEntity> GetAsync(int id, CancellationToken token = default(CancellationToken))
+        public virtual Task<TEntity> GetAsync(int id, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return _readOnlyRepository.GetAsync(id, token);
+            return _readOnlyRepository.GetAsync(id, cancellationToken);
         }
 
-        public virtual Task<IEnumerable<TEntity>> AllAsync(CancellationToken token = default(CancellationToken))
+        public virtual Task<IEnumerable<TEntity>> AllAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
-            return _readOnlyRepository.AllAsync(token);
+            return _readOnlyRepository.AllAsync(cancellationToken);
         }
 
-        public virtual Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken token = default(CancellationToken))
+        public virtual Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return _readOnlyRepository.FindAsync(predicate, token);
+            return _readOnlyRepository.FindAsync(predicate, cancellationToken);
         }
     }
 }

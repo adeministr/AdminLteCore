@@ -25,7 +25,7 @@ namespace Naitzel.Intranet.Infra.Security.AdminLte.Service
             _userService = userService;
         }
 
-        public async Task<ValidationResult> SignInAsync(string userName, string password, bool isPersistent = false, CancellationToken token = default(CancellationToken))
+        public async Task<ValidationResult> SignInAsync(string userName, string password, bool isPersistent = false, CancellationToken cancellationToken = default(CancellationToken))
         {
             var validator = new Regex(new EmailValidator().Expression, RegexOptions.IgnoreCase);
 
@@ -53,13 +53,13 @@ namespace Naitzel.Intranet.Infra.Security.AdminLte.Service
             return new ValidationResult("UserName or Password invalid.");
         }
 
-        public Task SignOutAsync(CancellationToken token = default(CancellationToken)) =>
+        public Task SignOutAsync(CancellationToken cancellationToken = default(CancellationToken)) =>
             _signInManager.SignOutAsync();
 
-        public Task<ValidationResult> RegisterAsync(User entity, CancellationToken token = default(CancellationToken)) =>
+        public Task<ValidationResult> RegisterAsync(User entity, CancellationToken cancellationToken = default(CancellationToken)) =>
             _userService.AddAsync(entity);
 
-        public Task<ValidationResult> UnregisterAsync(User entity, CancellationToken token = default(CancellationToken)) =>
+        public Task<ValidationResult> UnregisterAsync(User entity, CancellationToken cancellationToken = default(CancellationToken)) =>
             _userService.DeleteAsync(entity);
     }
 }

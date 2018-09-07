@@ -9,10 +9,10 @@ namespace Naitzel.Intranet.Domain.AdminLte.Interfaces.Service
 {
     public interface IUserRoleService
     {
-        Task<IEnumerable<Role>> AllAsync(User user, bool @readonly = false, CancellationToken token = default(CancellationToken));
+        Task<IEnumerable<Role>> AllAsync(User user, bool @readonly = false, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<ValidationResult> AddAsync(User user, Role role, CancellationToken token = default(CancellationToken));
+        Task<ValidationResult> AddAsync(User user, Role role, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<ValidationResult> DeleteAsync(User user, Role role, CancellationToken token = default(CancellationToken));
+        Task<ValidationResult> DeleteAsync(User user, Role role, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
