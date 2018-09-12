@@ -1,0 +1,14 @@
+@{
+    Layout = "_Base";
+    ViewData["Title"] = "Usuário";
+
+    @section Scripts {
+        <script src="~/js/mvc-grid.js"></script>
+        <script> $(function() { $('.mvc-grid').mvcgrid(); });</script>
+    }
+
+    @section Stylesheet {
+        <link href="~/css/mvc-grid.css" rel="stylesheet">
+    }
+}
+@RenderBody()

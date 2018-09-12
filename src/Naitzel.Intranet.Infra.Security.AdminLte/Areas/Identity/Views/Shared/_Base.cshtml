@@ -1,0 +1,22 @@
+@{
+    Layout = "_Layout";
+    @section BeforeStylesheet {
+        @RenderSection("BeforeStylesheet", required: false)
+    }
+    @section Stylesheet {
+        @RenderSection("Stylesheet", required: false)
+    }
+    @section AfterStylesheet {
+        @RenderSection("AfterStylesheet", required: false)
+    }
+    @section BeforeScripts {
+        @RenderSection("BeforeScripts", required: false)
+    }
+    @section Scripts {
+        @RenderSection("Scripts", required: false)
+    }
+    @section AfterScripts {
+        @RenderSection("AfterScripts", required: false)
+    }
+}
+@RenderBody()

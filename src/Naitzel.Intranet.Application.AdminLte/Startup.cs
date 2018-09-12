@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using Naitzel.Intranet.Application.AdminLte.Services;
+using Naitzel.Intranet.Domain.AdminLte.Interfaces.Service;
 using Naitzel.Intranet.Infra.CrossCutting.AdminLte;
 
 namespace Naitzel.Intranet.Application.AdminLte
@@ -35,6 +37,8 @@ namespace Naitzel.Intranet.Application.AdminLte
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddSingleton<ISidebarService, SidebarService>();
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)

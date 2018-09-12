@@ -1,0 +1,53 @@
+@model List<User>
+@{
+    Layout = "_UDefault";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Lista usuários</h3>
+    </div>
+
+    <div class="box-body">
+        @(Html
+            .Grid(Model)
+            .Css("table")
+            .AppendCss("table-hover")
+            .Build(columns =>
+            {
+                columns.Add(model => model.Id).Titled("#");
+                columns.Add(model => model.FirstName).Titled("Nome");
+                columns.Add(model => model.LastName).Titled("Sobre Nome");
+                columns.Add(model => model.UserName).Titled("Usuário");
+                columns.Add(model => model.Email).Titled("Email");
+
+
+                columns.Add(model => model.Id)
+                    .Titled("Ações")
+                    .Filterable(false)
+                    .Sortable(false)
+                    .Encoded(false)
+                    .RenderedAs(model => {
+
+                        var buttons = new System.Text.StringBuilder();
+                        buttons.Append($"<a href='{Url.Action("Update", "User", new { id = model.Id })}' class='btn btn-default btn-sm'><i class='fa fa-pencil-square-o'></i></a>");
+
+                        //buttons.Add();
+                            //" $"<div class=\"btn-group\"><button type=\"button\" class=\"btn btn-default\"><i class=\"fa fa-align-left\"></i></button></div>"
+                        return $"<div class='btn-group'>{buttons}</div>";
+                    });
+            })
+            .Empty("Nenhum registro encontrado.")
+            .Filterable()
+            .Sortable()
+        )
+
+    </div>
+
+    <div class="box-footer">
+        <a asp-controller="User" asp-action="Create" class="btn btn-default btn-flat pull-right">
+            <i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Novo
+        </a>
+    </div>
+</div>
+

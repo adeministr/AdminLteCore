@@ -17,8 +17,10 @@ namespace Naitzel.Intranet.Domain.AdminLte.ViewModel
 
         public string URLPath { get; set; }
 
-        public IList<SidebarMenuViewModel> TreeChild { get; set; }
+        public IList<SidebarMenuViewModel> TreeChild { get; set; } = new List<SidebarMenuViewModel>();
 
         public Tuple<int, int, int> LinkCounter { get; set; }
+
+        public int Order { get; set; } = 999;
     }
 }

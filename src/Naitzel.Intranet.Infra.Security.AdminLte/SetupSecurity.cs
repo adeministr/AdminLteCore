@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using Naitzel.Intranet.Domain.AdminLte.Entities;
+using Naitzel.Intranet.Domain.AdminLte.Interfaces.Service;
 using Naitzel.Intranet.Infra.Data.AdminLte;
 using Naitzel.Intranet.Infra.Security.AdminLte.Service;
 
@@ -54,6 +55,8 @@ namespace Naitzel.Intranet.Infra.Security.AdminLte
                 options.AccessDeniedPath = "/Identity/Account/AccessDenied";
                 options.SlidingExpiration = true;
             });
+
+            services.AddSingleton<ISidebarService, SidebarService>();
         }
 
         public static void UseAdminLteSecurity(this IApplicationBuilder app, IServiceProvider serviceProvider)

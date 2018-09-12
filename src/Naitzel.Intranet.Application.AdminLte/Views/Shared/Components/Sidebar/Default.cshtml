@@ -81,14 +81,19 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            @foreach (SidebarMenuViewModel subMenu in menu.TreeChild)
+                            @foreach (SidebarMenuViewModel subMenu in menu.TreeChild.OrderBy(i => i.Order))
                             {
                                 active = string.Empty;
                                 if (Context.Request.Path.Value.Contains(subMenu.URLPath))
                                 {
                                     active = "active";
                                 }
-                                <li class="@active"><a href="@subMenu.URLPath">@subMenu.Name</a></li>
+                                <li class="@active">
+                                    <a href="@subMenu.URLPath">
+                                        <i class="@subMenu.IconClassName"></i>
+                                        <span>@subMenu.Name</span>
+                                    </a>
+                                </li>
                             }
                         </ul>
                     </li>

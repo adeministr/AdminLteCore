@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using Naitzel.Intranet.Domain.AdminLte.Enums;
 using Naitzel.Intranet.Domain.AdminLte.ViewModel;
@@ -10,101 +11,104 @@ namespace Naitzel.Intranet.Domain.AdminLte.Helper
         public enum Module
         {
             Home,
-            About,
-            Contact,
-            Error,
-            Login,
-            Register,
+            Setting,
+            User,
+            Role,
         }
 
         public static SidebarMenuViewModel AddHeader(string name)
         {
-            return new SidebarMenuViewModel
+            var menu = new SidebarMenuViewModel
             {
                 Type = SidebarMenuType.Header,
-                    Name = name,
+                Name = name,
+                Order = 0,
             };
+
+            return menu;
         }
 
-        public static SidebarMenuViewModel AddTree(string name, string iconClassName = "fa fa-link")
+        public static SidebarMenuViewModel AddTree(string name)
         {
-            return new SidebarMenuViewModel
+            var menu = new SidebarMenuViewModel
             {
-            Type = SidebarMenuType.Tree,
-            IsActive = false,
-            Name = name,
-            IconClassName = iconClassName,
-            URLPath = "#",
+                Type = SidebarMenuType.Tree,
+                IsActive = false,
+                Name = name,
+                URLPath = "#",
+                IconClassName = "fa fa-link"
             };
+
+            return menu;
+        }
+
+        public static SidebarMenuViewModel AddTree(string name, string icon)
+        {
+            var menu = AddTree(name);
+            menu.IconClassName = icon;
+            return menu;
         }
 
         public static SidebarMenuViewModel AddModule(Module module, Tuple<int, int, int> counter = null)
         {
-            if (counter == null)
-                counter = Tuple.Create(0, 0, 0);
+            if (counter == null) counter = Tuple.Create(0, 0, 0);
+
+            SidebarMenuViewModel menu = null;
 
             switch (module)
             {
                 case Module.Home:
-                    return new SidebarMenuViewModel
+                    menu = new SidebarMenuViewModel
                     {
                         Type = SidebarMenuType.Link,
-                            Name = "Home",
-                            IconClassName = "fa fa-link",
-                            URLPath = "/",
-                            LinkCounter = counter,
+                        Name = "Home",
+                        IconClassName = "fa fa-link",
+                        URLPath = "/",
+                        LinkCounter = counter,
+                        Order = 2,
                     };
-                case Module.Login:
-                    return new SidebarMenuViewModel
+                    break;
+
+                case Module.Setting:
+                    menu = new SidebarMenuViewModel
+                    {
+                        Type = SidebarMenuType.Tree,
+                        IsActive = false,
+                        Name = "Sistema",
+                        IconClassName = "fa fa-sliders",
+                        URLPath = "#",
+                        TreeChild = new List<SidebarMenuViewModel>(),
+                        Order = 200
+                    };
+                    break;
+
+                case Module.User:
+                    menu = new SidebarMenuViewModel
                     {
                         Type = SidebarMenuType.Link,
-                            Name = "Login",
-                            IconClassName = "fa fa-sign-in",
-                            URLPath = "/Account/Login",
-                            LinkCounter = counter,
+                        Name = "Usuários",
+                        IconClassName = "fa fa-user-circle-o",
+                        URLPath = "/Identity/User/Index",
+                        LinkCounter = Tuple.Create(0, 0, 0),
                     };
-                case Module.Register:
-                    return new SidebarMenuViewModel
+                    break;
+
+                case Module.Role:
+                    menu = new SidebarMenuViewModel
                     {
                         Type = SidebarMenuType.Link,
-                            Name = "Register",
-                            IconClassName = "fa fa-user-plus",
-                            URLPath = "/Account/Register",
-                            LinkCounter = counter,
+                        Name = "Funções",
+                        IconClassName = "fa fa-tags",
+                        URLPath = "/Home/About",
+                        LinkCounter = Tuple.Create(0, 0, 0),
                     };
-                case Module.About:
-                    return new SidebarMenuViewModel
-                    {
-                        Type = SidebarMenuType.Link,
-                            Name = "About",
-                            IconClassName = "fa fa-group",
-                            URLPath = "/Home/About",
-                            LinkCounter = counter,
-                    };
-                case Module.Contact:
-                    return new SidebarMenuViewModel
-                    {
-                        Type = SidebarMenuType.Link,
-                            Name = "Contact",
-                            IconClassName = "fa fa-phone",
-                            URLPath = "/Home/Contact",
-                            LinkCounter = counter,
-                    };
-                case Module.Error:
-                    return new SidebarMenuViewModel
-                    {
-                        Type = SidebarMenuType.Link,
-                            Name = "Error",
-                            IconClassName = "fa fa-warning",
-                            URLPath = "/Home/Error",
-                            LinkCounter = counter,
-                    };
+                    break;
 
                 default:
                     break;
             }
 
-            return null;
+            return menu;
         }
     }
 }
